@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+@import "tailwindcss";
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+@theme {
+  /* Primary Brand Colors */
+  --color-jci-blue: #0097d7;
+  --color-jci-black: #130f2d;
+  --color-jci-white: #ffffff;
+
+  /* Secondary Brand Colors */
+  --color-jci-navy: #1f4789;
+  --color-jci-teal: #57bcbc;
+  --color-jci-yellow: #efc40f;
+}
