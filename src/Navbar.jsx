@@ -83,7 +83,7 @@ const Navbar = () => {
 
               className={({ isActive }) =>
                 `text-lg md:text-sm px-3 py-4 md:py-2 font-medium transition-all duration-300
-     ${isActive ? "text-jci-blue" : showNav ? "text-jci-navy" : "text-white"}
+     ${isActive ? "text-jci-black" : showNav ? "text-jci-navy" : "text-white"}
      hover:text-jci-blue`
               }
             >
