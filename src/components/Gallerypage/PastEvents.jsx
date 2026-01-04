@@ -139,6 +139,7 @@ const PEG = () => {
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               src={detail.image}
               alt=""
+              loading="lazy"
             />
 
             {/* Blue overlay */}
