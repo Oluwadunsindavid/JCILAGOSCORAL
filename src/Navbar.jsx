@@ -78,7 +78,14 @@ const Navbar = () => {
             <NavLink
               key={item}
               to={item === "home" ? "/" : `/${item}`} // If it's home, point to /
-              className={navLink}
+              // className={navLink}
+              // UPDATE TO ISACTIVE
+
+              className={({ isActive }) =>
+                `text-lg md:text-sm px-3 py-4 md:py-2 font-medium transition-all duration-300
+     ${isActive ? "text-jci-blue" : showNav ? "text-jci-navy" : "text-white"}
+     hover:text-jci-blue`
+              }
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </NavLink>
@@ -118,7 +125,13 @@ const Navbar = () => {
                 to={item === "home" ? "/" : `/${item}`}
                 // If it's home, point to
                 onClick={() => setVisible(false)}
-                className="text-xl fontbold text-white hover:text-jci-teal transition-colors"
+                // className="text-xl fontbold text-white hover:text-jci-teal transition-colors"
+                // UPDATE TO ISACTIVE
+                className={({ isActive }) =>
+                  `text-xl font-bold transition-colors
+     ${isActive ? "text-jci-blue" : "text-white"}
+     hover:text-jci-blue`
+                }
               >
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </NavLink>
