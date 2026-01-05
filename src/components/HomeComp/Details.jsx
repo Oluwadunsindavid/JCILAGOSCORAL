@@ -1,14 +1,13 @@
 import React from "react";
 import { AiOutlineGlobal } from "react-icons/ai";
-import { FaRegHeart } from "react-icons/fa6";
-import { RiCommunityLine, RiTeamLine } from "react-icons/ri";
+import { RiAwardLine, RiCommunityLine, RiTeamLine } from "react-icons/ri";
 
 const Details = () => {
   const items = [
-    { icon: <RiTeamLine />, number: "200k+", word: "Active Members" },
-    { icon: <AiOutlineGlobal />, number: "100+", word: "Countries" },
-    { icon: <RiCommunityLine />, number: "5K+", word: "Local Chapters" },
-    { icon: <FaRegHeart />, number: "1M+", word: "Lives Impacted" },
+    { icon: < AiOutlineGlobal/>, number: "2018", word: "Year Founded" },
+    { icon: < RiTeamLine />, number: "150+", word: "Current Membership" },
+    { icon: <RiCommunityLine />, number: "100+", word: "Community Projects" },
+    { icon: <RiAwardLine />, number: "18+", word: "National and International Awards" },
   ];
 
   return (
