@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Links, NavLink } from "react-router-dom";
 import logo from "./assets/logo.PNG";
 import darkLogo from "./assets/darkLogo.PNG";
 import { IoMdClose } from "react-icons/io";
@@ -98,9 +98,12 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <button className="px-6 py-2.5 bg-jci-yellow text-jci-navy font-jakarta font-bold text-sm rounded-lg hover:bg-jci-yellow/90 transition-all shadow-lg cursor-pointer">
+          <Link
+            to="/contact"
+            className="px-6 py-2.5 bg-jci-yellow text-jci-navy font-jakarta font-bold text-sm rounded-lg hover:bg-jci-yellow/90 transition-all shadow-lg cursor-pointer"
+          >
             JOIN NOW
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle Icon */}
@@ -113,9 +116,7 @@ const Navbar = () => {
           ) : (
             <BiMenuAltRight
               size={32}
-              className={`${
-                showNav ? "text-jci-black" : "text-white"
-              }  mr-4`}
+              className={`${showNav ? "text-jci-black" : "text-white"}  mr-4`}
             />
           )}
         </div>
@@ -146,9 +147,13 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            <button className="mt-8 px-10 py-4 bg-jci-yellow text-jci-navy font-jakarta font-bold text-lg rounded-full shadow-2xl">
+            <Link
+              to="/contact"
+              onClick={() => setVisible(false)}
+              className="mt-8 px-10 py-4 bg-jci-yellow text-jci-navy font-jakarta font-bold text-lg rounded-full shadow-2xl"
+            >
               JOIN NOW
-            </button>
+            </Link>
           </div>
         </div>
       </nav>

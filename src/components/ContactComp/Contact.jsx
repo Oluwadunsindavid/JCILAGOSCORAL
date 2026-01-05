@@ -12,7 +12,7 @@ import {
 
 const Contact = () => {
   return (
-    <section className="bg-white py-16 px-4 sm:px-8 lg:px-20">
+    <section className="bg-white py-8 sm:py-10 lg:py-12 px-6 md:px-10 lg:px-16 xl:px-40 transition-all duration-500">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
         {/* LEFT CONTENT */}
         <div>

@@ -30,7 +30,7 @@ const ExploreJCI = () => {
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
               Learn about our mission, vision, and the impact we create globally
             </p>
-            <div class="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+            <div className="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
               <span>Learn More</span>
               <i className="text-lg">
                 <FaArrowRight />
@@ -52,7 +52,7 @@ const ExploreJCI = () => {
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
               Explore photos from our events, projects, and community activities
             </p>
-            <div class="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+            <div className="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
               <span>Learn More</span>
               <i className="text-lg">
                 <FaArrowRight />
@@ -75,7 +75,7 @@ const ExploreJCI = () => {
               Discover upcoming conferences, workshops, and networking
               opportunities
             </p>
-            <div class="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+            <div className="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
               <span>Learn More</span>
               <i className="text-lg">
                 <FaArrowRight />
@@ -97,7 +97,7 @@ const ExploreJCI = () => {
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
               Get in touch with us for inquiries, partnerships, or support
             </p>
-            <div class="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
+            <div className="flex items-center text-jci-blue font-jakarta font-semibold text-sm group-hover:gap-3 gap-2 transition-all">
               <span>Learn More</span>
               <i className="text-lg">
                 <FaArrowRight />

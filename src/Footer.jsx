@@ -1,5 +1,5 @@
 import React from "react";
-import darklogo from "./assets/123.PNG";
+import darklogo from "./assets/darkLogo.PNG";
 import { Link } from "react-router-dom";
 import {
   RiFacebookFill,
