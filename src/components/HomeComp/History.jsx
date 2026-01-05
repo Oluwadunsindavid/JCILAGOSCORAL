@@ -4,17 +4,51 @@ import Header from "../../Header";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
 // Images
-import img1 from "../../assets/1.webp";
-import img2 from "../../assets/2.webp";
-import img3 from "../../assets/3.webp";
-import img4 from "../../assets/4.webp";
-import img5 from "../../assets/5.webp";
-import img6 from "../../assets/6.webp";
-import img7 from "../../assets/7.webp";
-import img8 from "../../assets/8.webp";
-import img9 from "../../assets/9.webp";
+import img1 from "../../assets/Pres1.jpeg";
+import img2 from "../../assets/Pres2.jpeg";
+import img3 from "../../assets/Pres3.jpeg";
+import img4 from "../../assets/pres4.jpeg";
+import img5 from "../../assets/pres5.jpeg";
+import img6 from "../../assets/pres6.jpeg";
+import img7 from "../../assets/pres7.jpeg";
+import img8 from "../../assets/pres8.jpeg";
+import img9 from "../../assets/pres9.jpeg";
+import img10 from "../../assets/Pres10.jpeg";
+import img11 from "../../assets/Pres11.jpeg";
+import img12 from "../../assets/Pres12.jpeg";
+import img13 from "../../assets/Pres13.jpeg";
+import img14 from "../../assets/pres14.jpeg";
+import img15 from "../../assets/pres15.jpeg";
+import img16 from "../../assets/pres16.jpeg";
+import img17 from "../../assets/pres17.jpeg";
+import img18 from "../../assets/pres18.jpeg";
+import img19 from "../../assets/pres19.jpeg";
+import img20 from "../../assets/Pres20.jpeg";
+import img21 from "../../assets/Pres21.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+const images = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+];
 
 // clones for infinite effect
 const extendedImages = [
