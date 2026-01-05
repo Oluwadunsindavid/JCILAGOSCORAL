@@ -13,18 +13,18 @@ import img6 from "../../assets/pres6.jpeg";
 import img7 from "../../assets/pres7.jpeg";
 import img8 from "../../assets/pres8.jpeg";
 import img9 from "../../assets/pres9.jpeg";
-import img10 from "../../assets/Pres10.jpeg";
-import img11 from "../../assets/Pres11.jpeg";
-import img12 from "../../assets/Pres12.jpeg";
-import img13 from "../../assets/Pres13.jpeg";
+import img10 from "../../assets/pres10.jpeg";
+import img11 from "../../assets/pres11.jpeg";
+import img12 from "../../assets/pres12.jpeg";
+import img13 from "../../assets/pres13.jpeg";
 import img14 from "../../assets/pres14.jpeg";
 import img15 from "../../assets/pres15.jpeg";
 import img16 from "../../assets/pres16.jpeg";
 import img17 from "../../assets/pres17.jpeg";
 import img18 from "../../assets/pres18.jpeg";
 import img19 from "../../assets/pres19.jpeg";
-import img20 from "../../assets/Pres20.jpeg";
-import img21 from "../../assets/Pres21.jpeg";
+import img20 from "../../assets/pres20.jpeg";
+import img21 from "../../assets/pres21.jpeg";
 
 const images = [
   img1,
