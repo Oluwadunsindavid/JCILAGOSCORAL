@@ -170,6 +170,7 @@ const History = () => {
                 src={img}
                 alt=""
                 onClick={() => openLightbox(index)}
+                loading="lazy"
                 className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"
               />
             </div>
@@ -214,6 +215,7 @@ const History = () => {
             {/* Image */}
             <img
               src={images[activeIndex]}
+              loading="lazy"
               alt=""
               className="w-full max-h-[85vh] object-contain rounded-lg"
             />
