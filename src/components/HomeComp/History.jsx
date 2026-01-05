@@ -1,4 +1,3 @@
-// CHATGPT V4
 import React, { useEffect, useState } from "react";
 import Header from "../../Header";
 import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
@@ -50,32 +49,34 @@ const images = [
   img21,
 ];
 
-// clones for infinite effect
-const extendedImages = [
-  ...images.slice(-3), // clone last slides
-  ...images,
-  ...images.slice(0, 3), // clone first slides
-];
-// 3 here matches slidesPerView on large screens
-// This is VERY important for smoothness.
-
 const History = () => {
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const [paused, setPaused] = useState(false);
   const [slidesPerView, setSlidesPerView] = useState(1);
-  const [current, setCurrent] = useState(slidesPerView);
+  const [current, setCurrent] = useState(1);
+  const [paused, setPaused] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
   /* ---------- RESPONSIVE ---------- */
   useEffect(() => {
-    const updateView = () =>
-      setSlidesPerView(window.innerWidth >= 1024 ? 3 : 1);
+    const updateView = () => {
+      const view = window.innerWidth >= 1024 ? 3 : 1;
+      setSlidesPerView(view);
+      setCurrent(view);
+    };
+
     updateView();
     window.addEventListener("resize", updateView);
     return () => window.removeEventListener("resize", updateView);
   }, []);
+
+  /* ---------- CLONES FOR INFINITE ---------- */
+  const extendedImages = [
+    ...images.slice(-slidesPerView),
+    ...images,
+    ...images.slice(0, slidesPerView),
+  ];
 
   /* ---------- AUTOSWIPE ---------- */
   useEffect(() => {
@@ -86,14 +87,13 @@ const History = () => {
     }, 4000);
 
     return () => clearInterval(timer);
-  }, [current, slidesPerView, paused, lightboxOpen]);
+  }, [current, paused, lightboxOpen, slidesPerView]);
 
-  /*------------- Snap back when hitting clones FOR WHEN THE CAROUSEL HITS THE LAST IMAGE----------------------*/
+  /* ---------- SNAP WHEN HITTING CLONES ---------- */
   useEffect(() => {
     if (!isTransitioning) return;
 
     const maxIndex = images.length + slidesPerView;
-    const minIndex = slidesPerView;
 
     if (current >= maxIndex) {
       setTimeout(() => {
@@ -102,7 +102,7 @@ const History = () => {
       }, 700);
     }
 
-    if (current < minIndex) {
+    if (current < slidesPerView) {
       setTimeout(() => {
         setIsTransitioning(false);
         setCurrent(images.length);
@@ -110,8 +110,13 @@ const History = () => {
     }
   }, [current, isTransitioning, slidesPerView, images.length]);
 
-  /* ---------- SLIDER CONTROLS ---------- */
+  useEffect(() => {
+    if (!isTransitioning) {
+      requestAnimationFrame(() => setIsTransitioning(true));
+    }
+  }, [isTransitioning]);
 
+  /* ---------- CONTROLS ---------- */
   const nextSlide = () => {
     setIsTransitioning(true);
     setCurrent((prev) => prev + slidesPerView);
@@ -123,8 +128,11 @@ const History = () => {
   };
 
   /* ---------- LIGHTBOX ---------- */
-  const openLightbox = (index) => {
-    setActiveIndex(index);
+  const openLightbox = (extendedIndex) => {
+    const realIndex =
+      (extendedIndex - slidesPerView + images.length) % images.length;
+
+    setActiveIndex(realIndex);
     setLightboxOpen(true);
     document.body.style.overflow = "hidden";
   };
@@ -168,9 +176,9 @@ const History = () => {
             <div key={index} className="min-w-full lg:min-w-[33.3333%] px-2">
               <img
                 src={img}
+                loading="lazy"
                 alt=""
                 onClick={() => openLightbox(index)}
-                loading="lazy"
                 className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"
               />
             </div>
@@ -197,14 +205,13 @@ const History = () => {
       {/* ---------- LIGHTBOX ---------- */}
       {lightboxOpen && (
         <div
-          onClick={() => openLightbox(index % images.length)}
-          className="fixed inset-0 z-50 bg-black flex items-center justify-center px-4"
+          onClick={closeLightbox}
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center px-4"
         >
           <div
             onClick={(e) => e.stopPropagation()}
             className="relative max-w-6xl w-full"
           >
-            {/* Close */}
             <button
               onClick={closeLightbox}
               className="absolute top-4 right-4 bg-white text-jci-blue p-2 rounded-full shadow-lg hover:scale-110 transition"
@@ -212,7 +219,6 @@ const History = () => {
               <FiX size={22} />
             </button>
 
-            {/* Image */}
             <img
               src={images[activeIndex]}
               loading="lazy"
@@ -220,7 +226,6 @@ const History = () => {
               className="w-full max-h-[85vh] object-contain rounded-lg"
             />
 
-            {/* Prev */}
             <button
               onClick={prevLightbox}
               className={`absolute left-4 top-1/2 -translate-y-1/2 ${navBtn}`}
@@ -228,7 +233,6 @@ const History = () => {
               <FiChevronLeft size={24} />
             </button>
 
-            {/* Next */}
             <button
               onClick={nextLightbox}
               className={`absolute right-4 top-1/2 -translate-y-1/2 ${navBtn}`}
