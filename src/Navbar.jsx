@@ -53,18 +53,22 @@ const Navbar = () => {
         <Link to="/" className="z-60 font-bold">
           {visible ? (
             /* Dark version of logo when menu is open */
-            <div className="w-20 h-20 animate-disk">
+            <div className="w-20 h-20">
               <img
                 src={darkLogo}
                 alt="JCI Logo"
                 className="w-full h-full object-contain"
               />
             </div>
+          ) : showNav ? (
+            <div className="w-20 h-20">
+              <img src={logo} alt="" />
+            </div>
           ) : (
             /* Original image logo when menu is closed */
-            <div className="w-20 h-20 animate-disk">
+            <div className="w-20 h-20">
               <img
-                src={logo}
+                src={darkLogo}
                 alt="JCI Logo"
                 className="w-full h-full object-contain"
               />
@@ -105,9 +109,14 @@ const Navbar = () => {
           className="md:hidden z-60 cursor-pointer transition-transform duration-300 active:scale-90"
         >
           {visible ? (
-            <IoMdClose size={32} className="text-white mt-6 mr-4" />
+            <IoMdClose size={32} className="text-white mr-4" />
           ) : (
-            <BiMenuAltRight size={32} className="text-jci-black" />
+            <BiMenuAltRight
+              size={32}
+              className={`${
+                showNav ? "text-jci-black" : "text-white"
+              }  mr-4`}
+            />
           )}
         </div>
 
