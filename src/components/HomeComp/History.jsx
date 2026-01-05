@@ -1,9 +1,209 @@
-import React from 'react'
+// CHATGPT V4
+import React, { useEffect, useState } from "react";
+import Header from "../../Header";
+import { FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+
+// Images
+import img1 from "../../assets/1.webp";
+import img2 from "../../assets/2.webp";
+import img3 from "../../assets/3.webp";
+import img4 from "../../assets/4.webp";
+import img5 from "../../assets/5.webp";
+import img6 from "../../assets/6.webp";
+import img7 from "../../assets/7.webp";
+import img8 from "../../assets/8.webp";
+import img9 from "../../assets/9.webp";
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+
+// clones for infinite effect
+const extendedImages = [
+  ...images.slice(-3), // clone last slides
+  ...images,
+  ...images.slice(0, 3), // clone first slides
+];
+// 3 here matches slidesPerView on large screens
+// This is VERY important for smoothness.
 
 const History = () => {
-  return (
-    <div>History</div>
-  )
-}
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [paused, setPaused] = useState(false);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [current, setCurrent] = useState(slidesPerView);
 
-export default History
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  /* ---------- RESPONSIVE ---------- */
+  useEffect(() => {
+    const updateView = () =>
+      setSlidesPerView(window.innerWidth >= 1024 ? 3 : 1);
+    updateView();
+    window.addEventListener("resize", updateView);
+    return () => window.removeEventListener("resize", updateView);
+  }, []);
+
+  /* ---------- AUTOSWIPE ---------- */
+  useEffect(() => {
+    if (paused || lightboxOpen) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [current, slidesPerView, paused, lightboxOpen]);
+
+  /*------------- Snap back when hitting clones FOR WHEN THE CAROUSEL HITS THE LAST IMAGE----------------------*/
+  useEffect(() => {
+    if (!isTransitioning) return;
+
+    const maxIndex = images.length + slidesPerView;
+    const minIndex = slidesPerView;
+
+    if (current >= maxIndex) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrent(slidesPerView);
+      }, 700);
+    }
+
+    if (current < minIndex) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrent(images.length);
+      }, 700);
+    }
+  }, [current, isTransitioning, slidesPerView, images.length]);
+
+  /* ---------- SLIDER CONTROLS ---------- */
+
+  const nextSlide = () => {
+    setIsTransitioning(true);
+    setCurrent((prev) => prev + slidesPerView);
+  };
+
+  const prevSlide = () => {
+    setIsTransitioning(true);
+    setCurrent((prev) => prev - slidesPerView);
+  };
+
+  /* ---------- LIGHTBOX ---------- */
+  const openLightbox = (index) => {
+    setActiveIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = "auto";
+  };
+
+  const nextLightbox = () =>
+    setActiveIndex((prev) => (prev + 1) % images.length);
+
+  const prevLightbox = () =>
+    setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+
+  /* ---------- BUTTON STYLE ---------- */
+  const navBtn =
+    "bg-white text-jci-blue p-3 sm:p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300";
+
+  return (
+    <div className="py-8 sm:py-10 lg:py-12 px-6 md:px-10 lg:px-16 xl:px-40">
+      <Header text1={"Coral in history"} />
+
+      {/* ---------- CAROUSEL ---------- */}
+      <div
+        className="relative mt-10 overflow-hidden"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div
+          className={`flex ${
+            isTransitioning
+              ? "transition-transform duration-700 ease-in-out"
+              : ""
+          }`}
+          style={{
+            transform: `translateX(-${(current * 100) / slidesPerView}%)`,
+          }}
+        >
+          {extendedImages.map((img, index) => (
+            <div key={index} className="min-w-full lg:min-w-[33.3333%] px-2">
+              <img
+                src={img}
+                alt=""
+                onClick={() => openLightbox(index)}
+                className="w-full h-64 sm:h-72 lg:h-80 object-cover rounded-xl cursor-pointer hover:scale-105 transition-transform"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Prev */}
+        <button
+          onClick={prevSlide}
+          className={`absolute left-3 top-1/2 -translate-y-1/2 ${navBtn}`}
+        >
+          <FiChevronLeft size={22} />
+        </button>
+
+        {/* Next */}
+        <button
+          onClick={nextSlide}
+          className={`absolute right-3 top-1/2 -translate-y-1/2 ${navBtn}`}
+        >
+          <FiChevronRight size={22} />
+        </button>
+      </div>
+
+      {/* ---------- LIGHTBOX ---------- */}
+      {lightboxOpen && (
+        <div
+          onClick={() => openLightbox(index % images.length)}
+          className="fixed inset-0 z-50 bg-black flex items-center justify-center px-4"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-6xl w-full"
+          >
+            {/* Close */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 bg-white text-jci-blue p-2 rounded-full shadow-lg hover:scale-110 transition"
+            >
+              <FiX size={22} />
+            </button>
+
+            {/* Image */}
+            <img
+              src={images[activeIndex]}
+              alt=""
+              className="w-full max-h-[85vh] object-contain rounded-lg"
+            />
+
+            {/* Prev */}
+            <button
+              onClick={prevLightbox}
+              className={`absolute left-4 top-1/2 -translate-y-1/2 ${navBtn}`}
+            >
+              <FiChevronLeft size={24} />
+            </button>
+
+            {/* Next */}
+            <button
+              onClick={nextLightbox}
+              className={`absolute right-4 top-1/2 -translate-y-1/2 ${navBtn}`}
+            >
+              <FiChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default History;
