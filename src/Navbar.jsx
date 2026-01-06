@@ -42,7 +42,7 @@ const Navbar = () => {
   }`;
 
   // for the join now button
-  const {setModalOpen} = useUI()
+  const { setModalOpen } = useUI();
 
   return (
     <>
@@ -154,8 +154,12 @@ const Navbar = () => {
             ))}
 
             <Link
-              to="/contact"
-              onClick={() => setVisible(false)}
+              // to="/contact"
+              // double/two onClicks in a div
+              onClick={() => {
+                setModalOpen(true);
+                setVisible(false);
+              }}
               className="mt-8 px-10 py-4 bg-jci-yellow text-jci-navy font-jakarta font-bold text-lg rounded-full shadow-2xl"
             >
               JOIN NOW
