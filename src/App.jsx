@@ -7,6 +7,7 @@ import Gallerypage from "./pages/Gallerypage";
 import Eventpage from "./pages/Eventpage";
 import Contactpage from "./pages/Contactpage";
 import Footer from "./Footer";
+import Modal from "./Modal";
 
 
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Modal/>
 
       <Routes>
         <Route path="/" element={<Homepage />} />

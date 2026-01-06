@@ -2,8 +2,11 @@ import React from "react";
 import bg from "../../assets/bg.png";
 import { Link } from "react-router-dom";
 import { RiArrowRightLine } from "react-icons/ri";
+// for apply now button
+import { useUI } from "../../UIContext";
 
 const MakeYourMark = () => {
+  const { setModalOpen } = useUI();
   return (
     <section className="relative h-150 overflow-hidden px-6 md:px-10 lg:px-16 xl:px-40 transition-all duration-500">
       {/* Blue overlay */}
@@ -37,8 +40,8 @@ const MakeYourMark = () => {
         {/* lower section */}
         <div className="flex flex-col items-center justify-center sm:flex-row sm:items-end sm:justify-between">
           <Link
+            onClick={() => setModalOpen(true)}
             className="group bg-white px-8 py-5 rounded-full flex items-center gap-4 hover:scale-105 transition-all shadow-2xl cursor-pointer"
-            to="/contact"
           >
             <span className=" font-bold text-lg text-jci-navy whitespace-nowrap">
               Apply Now

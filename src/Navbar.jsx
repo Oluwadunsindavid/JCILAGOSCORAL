@@ -4,6 +4,8 @@ import logo from "./assets/logo.PNG";
 import darkLogo from "./assets/darkLogo.PNG";
 import { IoMdClose } from "react-icons/io";
 import { BiMenuAltRight } from "react-icons/bi";
+// for join now button
+import { useUI } from "./UIContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -38,6 +40,9 @@ const Navbar = () => {
   const navLink = `text-lg md:text-sm px-3 py-4 md:py-2 font-medium transition-all duration-300 hover:text-jci-teal ${
     showNav ? "text-jci-black" : "text-white"
   }`;
+
+  // for the join now button
+  const {setModalOpen} = useUI()
 
   return (
     <>
@@ -99,7 +104,8 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:block">
           <Link
-            to="/contact"
+            // to="/contact"
+            onClick={() => setModalOpen(true)}
             className="px-6 py-2.5 bg-jci-yellow text-jci-navy font-jakarta font-bold text-sm rounded-lg hover:bg-jci-yellow/90 transition-all shadow-lg cursor-pointer"
           >
             JOIN NOW

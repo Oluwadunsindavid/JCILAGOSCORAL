@@ -2,7 +2,11 @@ import React from "react";
 import BGImg from "../../assets/homeHero.webp";
 import { RiTeamLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
+import { useUI } from "../../UIContext";
+
 const Hero = () => {
+    const { setModalOpen } = useUI();
+
   return (
     <div
       className="relative w-full min-h-screen bg-cover bg-center p-4"
@@ -42,7 +46,7 @@ const Hero = () => {
             <p className="text-sm sm:text-base text-gray-600 mb-6">
               Connect with 200,000+ young leaders acr
             </p>
-            <button className="flex items-center justify-center gap-6 w-full px-6 sm:px-8 py-3 sm:py-4 bg-jci-yellow text-jci-navy font-bold text-sm sm:text-base rounded-lg hover:bg-jci-yellow/90 transition-all shadow-lg whitespace-nowrap cursor-pointer">
+            <button onClick={()=>setModalOpen(true)} className="flex items-center justify-center gap-6 w-full px-6 sm:px-8 py-3 sm:py-4 bg-jci-yellow text-jci-navy font-bold text-sm sm:text-base rounded-lg hover:bg-jci-yellow/90 transition-all shadow-lg whitespace-nowrap cursor-pointer">
               Start Your Journey
               <br /> <FaArrowRight />
             </button>
