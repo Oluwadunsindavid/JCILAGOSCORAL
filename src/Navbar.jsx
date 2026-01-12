@@ -83,7 +83,7 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center space-x-8">
-          {["home", "about", "gallery", "event", "contact"].map((item) => (
+          {["home", "about", "gallery", "event", "contact","Blog"].map((item) => (
             <NavLink
               key={item}
               to={item === "home" ? "/" : `/${item}`} // If it's home, point to /
