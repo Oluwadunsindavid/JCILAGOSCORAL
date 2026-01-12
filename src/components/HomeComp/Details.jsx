@@ -4,7 +4,7 @@ import { RiAwardLine, RiCommunityLine, RiTeamLine } from "react-icons/ri";
 
 const Details = () => {
   const items = [
-    { icon: < AiOutlineGlobal/>, number: "2018", word: "Year Founded" },
+    { icon: < AiOutlineGlobal/>, number: "2000", word: "Year Founded" },
     { icon: < RiTeamLine />, number: "150+", word: "Current Membership" },
     { icon: <RiCommunityLine />, number: "100+", word: "Community Projects" },
     { icon: <RiAwardLine />, number: "18+", word: "National and International Awards" },
