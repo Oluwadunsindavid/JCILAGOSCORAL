@@ -27,7 +27,7 @@ const items = [
   { id: 22, name: '2022', image: '/presidents/2022.jpeg', desc: 'The James Webb Telescope sends back its first images.', category: 'Science', event: 'Webb Images' },
   { id: 23, name: '2023', image: '/presidents/2023.jpeg', desc: 'Generative AI becomes a mainstream global phenomenon.', category: 'AI', event: 'ChatGPT Era' },
   { id: 24, name: '2024', image: '/presidents/2024.jpeg', desc: 'Focus on global elections and rapid AI integration.', category: 'Current', event: 'Election Year' },
-  { id: 25, name: '2025', image: '/presidents/2025.jpeg', desc: 'Pioneering clean energy transitions and quantum computing.', category: 'Future', event: 'Quantum Leap' },
+  { id: 25, name: '2025', image: '/presidents/2025.jpeg', desc: 'Pioneering clean energy transitions and quantum computing.', category: 'Pulse', event: 'Pulse' },
 ];
 
 const HistorySwiper = () => {
