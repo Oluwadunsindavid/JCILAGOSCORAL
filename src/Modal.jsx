@@ -1,3 +1,4 @@
+// Modal for the join now button
 import { FiX } from "react-icons/fi";
 import { useUI } from "./UIContext";
 import { Country, State } from "country-state-city";
