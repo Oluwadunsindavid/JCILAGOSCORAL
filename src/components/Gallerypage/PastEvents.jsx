@@ -185,6 +185,7 @@ const PEG = () => {
               <img
                 src={filteredEvents[currentIndex].image}
                 alt={filteredEvents[currentIndex].desc}
+                loading="lazy"
                 className="w-full max-h-[80vh] object-contain rounded-lg"
               />
 

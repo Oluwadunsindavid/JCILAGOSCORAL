@@ -13,6 +13,7 @@ const MakeYourMark = () => {
       <div className="absolute inset-0">
         <img
           src={bg}
+          loading="lazy"
           alt="JCI International Conference"
           className="w-full h-full object-cover objecttop"
         />

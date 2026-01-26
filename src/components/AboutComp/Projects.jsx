@@ -25,6 +25,7 @@ const Projects = () => {
             <div className="w-full h-full object-cover rounded-t-2xl md:rounded-t-none md:rounded-l-2xl">
               <img
                 src={kenya}
+                loading="lazy"
                 className="w-full h-96 object-cover rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
                 alt=""
               />
@@ -66,6 +67,7 @@ const Projects = () => {
             <div className="w-full h-full object-cover md:rounded-r-2xl">
               <img
                 src={brazil}
+                loading="lazy"
                 className="w-full h-96 object-cover md:rounded-r-2xl rounded-t-2xl md:rounded-t-none"
                 alt=""
               />
@@ -107,6 +109,7 @@ const Projects = () => {
             <div className="w-full h-full object-cover rounded-t-2xl md:rounded-t-none md:rounded-l-2xl">
               <img
                 src={india}
+                loading="lazy"
                 className="w-full h-96 object-cover rounded-t-2xl md:rounded-t-none md:rounded-l-2xl"
                 alt=""
               />

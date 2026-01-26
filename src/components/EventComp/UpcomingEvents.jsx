@@ -77,6 +77,7 @@ const UpcomingEvents = () => {
         <div className="w-full ">
           <img
             src={img}
+            loading="lazy"
             className="w-full h-96 sm:h-full object-cover rounded-t-2xl sm:rounded-t-none sm:rounded-l-2xl"
           />
         </div>
@@ -143,6 +144,7 @@ const UpcomingEvents = () => {
             <div className="w-full group overflow-hidden">
               <img
                 src={detail.img}
+                loading="lazy"
                 className="w-full h-96 sm:h-full object-cover rounded-t-2xl object-top group-hover:scale-110 transition-transform "
               />
             </div>

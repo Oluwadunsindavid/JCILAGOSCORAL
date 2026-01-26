@@ -8,6 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={BGImg}
+          loading="lazy"
           alt="JCI International Conference"
           className="w-full h-full object-cover objecttop"
         />

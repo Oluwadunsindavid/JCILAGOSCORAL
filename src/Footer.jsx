@@ -40,7 +40,7 @@ const Footer = () => {
           {/* 1st section */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="w-20 h-20 object-cover">
-              <img src={darklogo} className="w-full h-full" alt="" />
+              <img src={darklogo} className="w-full h-full" alt="" loading="lazy" />
             </div>
             <p className="text-white/80 text-sm leading-relaxed">
               Empowering young leaders to create positive change in their

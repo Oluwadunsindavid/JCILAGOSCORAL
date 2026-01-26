@@ -48,6 +48,7 @@ const Stories = () => {
                 <img
                   src={item.image}
                   className="rounded-full w-full h-full"
+                  loading="lazy"
                   alt="sarah"
                 />
               </div>
@@ -64,7 +65,9 @@ const Stories = () => {
             </div>
             {/* What was said */}
             <div>
-              <i className="text-gray-700 leading-relaxed text-sm sm:text-lg">{item.content}</i>
+              <i className="text-gray-700 leading-relaxed text-sm sm:text-lg">
+                {item.content}
+              </i>
             </div>
           </div>
         ))}

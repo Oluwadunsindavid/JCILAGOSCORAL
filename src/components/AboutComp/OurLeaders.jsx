@@ -28,7 +28,7 @@ const OurLeaders = () => {
         {items.map((item, index) => (
           <div key={index}>
             <div className="w-full h-full object-cover mb-4">
-              <img src={item.image} className="rounded-2xl" />
+              <img src={item.image} loading="lazy" className="rounded-2xl" />
             </div>
             <h2 className="font-jakarta font-bold text-xl text-jci-navy mb-2">
               {item.name}{" "}

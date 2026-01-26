@@ -63,17 +63,19 @@ const Navbar = () => {
                 src={darkLogo}
                 alt="JCI Logo"
                 className="w-full h-full object-contain"
+                loading="lazy"
               />
             </div>
           ) : showNav ? (
             <div className="w-20 h-20">
-              <img src={logo} alt="" />
+              <img src={logo} alt="" loading="lazy" />
             </div>
           ) : (
             /* Original image logo when menu is closed */
             <div className="w-20 h-20">
               <img
                 src={darkLogo}
+                loading="lazy"
                 alt="JCI Logo"
                 className="w-full h-full object-contain"
               />
@@ -83,22 +85,24 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center space-x-8">
-          {["home", "about", "gallery", "event", "contact","Blog"].map((item) => (
-            <NavLink
-              key={item}
-              to={item === "home" ? "/" : `/${item}`} // If it's home, point to /
-              // className={navLink}
-              // UPDATE TO ISACTIVE
+          {["home", "about", "gallery", "event", "contact", "Blog"].map(
+            (item) => (
+              <NavLink
+                key={item}
+                to={item === "home" ? "/" : `/${item}`} // If it's home, point to /
+                // className={navLink}
+                // UPDATE TO ISACTIVE
 
-              className={({ isActive }) =>
-                `text-lg md:text-sm px-3 py-4 md:py-2 font-medium transition-all duration-300
+                className={({ isActive }) =>
+                  `text-lg md:text-sm px-3 py-4 md:py-2 font-medium transition-all duration-300
      ${isActive ? "text-jci-black" : showNav ? "text-jci-navy" : "text-white"}
      hover:text-jci-blue`
-              }
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </NavLink>
-          ))}
+                }
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </NavLink>
+            ),
+          )}
         </ul>
 
         {/* Desktop CTA */}
